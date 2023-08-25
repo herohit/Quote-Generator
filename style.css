@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    color-scheme: dark;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+main{
+    width: 70%;
+    margin: auto;
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, sans-serif;
+    position: relative;
+    display: none;
+}
+
+main h1{
+    padding-block: 1.5rem;
+    font-size: 50px;
+}
+
+main button{
+    padding: 1rem 3rem;
+    cursor: pointer;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+main button:before{
+    content: 'Generate';
+    background-color: white;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s all ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+    
+
+}
+
+@keyframes fade-text {
+    0%, 95% {
+        color: #fff;
+    }
+    100% {
+        color: black; 
+    }
+}
+
+main button:hover:before{
+    width: 100%;
+    animation:fade-text 0.28s forwards;
+}
+
+
+main .text{
+    margin-top: 4rem;
+    height: 30vh;
+    font-size: 1.3rem;
+    padding: 1rem;
+    line-height: 1.5;
+    position: relative;
+}
+.text p:last-child{
+    text-align: end;
+    margin-top: 1rem;
+}
+
+.copy{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    font-size: 8px;
+    font-weight: 100;
+    padding: 0.2rem 0.7rem;
+    background-color: rgb(62, 58, 58);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.alert{
+    position: absolute;
+    padding: 1rem;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    top:43%;
+    left: 20%;
+    opacity: 0;
+    transition:opacity 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+}
+
+.alert.active{
+    opacity: 1;
+    transform: translateY(30px);
+}
+
+@media (max-width: 575.98px){
+    main{
+        width: 95%;
+        margin-top: 4rem;
+        height: 90vh;
+        justify-content: space-evenly;
+    }
+    
+    main h1{
+        padding-block: 1rem;
+        font-size: 40px;
+    }
+    
+    main button{
+        padding: 0.5rem 1.5rem;
+        margin-top: 2rem;
+    }
+
+
+    .copy{
+        position: absolute;
+        top:50%;
+        left: 40%;
+        font-size: 8px;
+        font-weight: 100;
+        padding: 0.2rem 0.7rem;
+        background-color: rgb(62, 58, 58);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .text{
+        padding-top:2rem;
+    }
+
+}
+
+@media (max-width: 300.98px){
+    main h1{
+        font-size: 30px;
+    }
+    main{
+        margin-top: 0rem;
+        justify-content: space-between;
+    }
+}
